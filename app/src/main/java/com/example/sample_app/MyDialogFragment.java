@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,7 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class MyDialogFragment extends DialogFragment {
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+public class MyDialogFragment extends /*DialogFragment*/ BottomSheetDialogFragment {
     private MyDialogListener dialogListener;
 
     @Override
@@ -22,12 +26,11 @@ public class MyDialogFragment extends DialogFragment {
         dialogListener = (MyDialogListener) context;
     }
 
-    @NonNull
+    @Nullable
     @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_fragment, null, false);
-        builder.setView(view);
+        //builder.setView(view);
 
         EditText inputText = view.findViewById(R.id.input_dialog);
         Button btnOK = view.findViewById(R.id.btn_dialog_ok);
@@ -50,8 +53,16 @@ public class MyDialogFragment extends DialogFragment {
                 dismiss();
             }
         });
-        return builder.create();
+        return view;
     }
+
+    /*@NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        return builder.create();
+    }*/
 
     interface MyDialogListener {
         void onOkButtonClicked(String data);
