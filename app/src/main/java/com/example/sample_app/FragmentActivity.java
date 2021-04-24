@@ -26,7 +26,7 @@ public class FragmentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_main_fragment_container);
                 FragmentTransaction removeTransaction = getSupportFragmentManager().beginTransaction();
-                removeTransaction.remove()
+                removeTransaction.remove(fragment);
             }
         });
     }
