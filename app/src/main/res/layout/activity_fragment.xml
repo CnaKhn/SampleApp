@@ -6,21 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".FragmentActivity">
 
+    <TextView
+        android:id="@+id/txt_activity_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
     <FrameLayout
         android:id="@+id/frame_main_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btn_remove_fragment"/>
+        android:layout_above="@id/btn_remove_fragment"
+        android:layout_below="@id/txt_activity_fragment" />
 
     <Button
         android:id="@+id/btn_remove_fragment"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remove"
         android:layout_alignParentBottom="true"
-        android:padding="18dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:padding="18dp"
+        android:text="Remove Transaction" />
 
 </RelativeLayout>
