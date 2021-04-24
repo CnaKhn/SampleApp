@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,12 +20,8 @@ import com.facebook.imagepipeline.core.ImageTranscoderType;
 import com.facebook.imagepipeline.core.MemoryChunkType;
 import com.squareup.picasso.Picasso;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private RecyclerView recyclerView;
-    private EditText inputContact;
-    private Button btnSaveContact;
-    private ContactsAdapter contactsAdapter;
-    private int itemEditPosition = -1; //-1=not editing,
+public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,39 +49,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .build());
 
         */
-        initViews();
-    }
-
-    public void initViews() {
-        contactsAdapter = new ContactsAdapter(new ContactsAdapter.ItemEventListener() {
-            @Override
-            public void onItemClick(String fullName, int position) {
-                itemEditPosition = position;
-                inputContact.setText(fullName);
-            }
-        });
-        inputContact = findViewById(R.id.input_contact_name);
-        btnSaveContact = findViewById(R.id.btn_save_contact);
-        btnSaveContact.setOnClickListener(this);
-        recyclerView = findViewById(R.id.rv_main);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        recyclerView.setAdapter(contactsAdapter);
     }
 
     @Override
-    public void onClick(View v) {
-        if (v.equals(btnSaveContact)) {
-            if (inputContact.length() > 0) {
-                if (itemEditPosition > -1) {
-                    contactsAdapter.update(inputContact.getText().toString(), itemEditPosition);
-                    itemEditPosition = -1;
-                } else {
-                    contactsAdapter.add(inputContact.getText().toString());
-                    recyclerView.smoothScrollToPosition(0);
-                    itemEditPosition = -1;
-                }
-                inputContact.setText("");
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Contacts").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, ContactsActivity.class));
+                return false;
             }
-        }
+        });
+        menu.add("Fragments").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, FragmentActivity.class));
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }
