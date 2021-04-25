@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +47,14 @@ public class FragmentActivity extends AppCompatActivity implements MyDialogFragm
             public boolean onMenuItemClick(MenuItem item) {
                 MyDialogFragment dialogFragment = new MyDialogFragment();
                 dialogFragment.show(getSupportFragmentManager(), null);
+                return false;
+            }
+        });
+
+        menu.add("View Pager 2").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(FragmentActivity.this, ViewPager2Activity.class));
                 return false;
             }
         });
