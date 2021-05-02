@@ -1,4 +1,4 @@
-package com.example.sample_app;
+package com.example.sample_app.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.sample_app.R;
 
 public class SlideFragment extends Fragment {
     @Nullable

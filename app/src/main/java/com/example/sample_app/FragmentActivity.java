@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sample_app.Fragments.MainFragment;
+import com.example.sample_app.Fragments.MyDialogFragment;
+
 public class FragmentActivity extends AppCompatActivity implements MyDialogFragment.MyDialogListener {
 
     @Override

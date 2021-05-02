@@ -1,4 +1,4 @@
-package com.example.sample_app;
+package com.example.sample_app.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import static com.example.sample_app.SecondFragment.KEY_DATA;
+import com.example.sample_app.R;
 
 public class MainFragment extends Fragment {
 
