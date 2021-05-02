@@ -1,24 +1,13 @@
 package com.example.sample_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.facebook.imagepipeline.core.ImageTranscoderType;
-import com.facebook.imagepipeline.core.MemoryChunkType;
-import com.squareup.picasso.Picasso;
+import com.example.sample_app.BroadcastReceiver.BroadcastReceiverActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 startActivity(new Intent(MainActivity.this, FragmentActivity.class));
+                return false;
+            }
+        });
+        menu.add("BroadcastReceiver").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, BroadcastReceiverActivity.class));
                 return false;
             }
         });

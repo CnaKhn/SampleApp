@@ -65,7 +65,7 @@ public class MyDialogFragment extends /*DialogFragment*/ BottomSheetDialogFragme
         return builder.create();
     }*/
 
-    interface MyDialogListener {
+    public interface MyDialogListener {
         void onOkButtonClicked(String data);
         void onCancelButtonClicked();
     }

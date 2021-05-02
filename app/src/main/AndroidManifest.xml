@@ -3,6 +3,7 @@
     package="com.example.sample_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleApp">
-        <activity android:name=".ViewPager2Activity"></activity>
+        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity"></activity>
+        <activity android:name=".ViewPager2Activity" />
         <activity android:name=".FragmentActivity" />
         <activity android:name=".ContactsActivity" />
         <activity android:name=".MainActivity">
@@ -21,6 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".BroadcastReceiver.ExampleBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
