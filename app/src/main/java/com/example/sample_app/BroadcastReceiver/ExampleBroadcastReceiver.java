@@ -7,13 +7,20 @@ import android.net.ConnectivityManager;
 import android.widget.Toast;
 
 public class ExampleBroadcastReceiver extends BroadcastReceiver {
-    @Override
+    @Override // CUSTOM BROADCAST RECEIVER
     public void onReceive(Context context, Intent intent) {
-        /*if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+        if ("com.example.sample_app.EXAMPLE_ACTION".equals(intent.getAction())) {
+            String receivedText = intent.getStringExtra("com.example.sample_app.EXTRA_TEXT");
+            Toast.makeText(context, receivedText, Toast.LENGTH_SHORT).show();
+        }
+    }
+    /*@Override
+    public void onReceive(Context context, Intent intent) {
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             Toast.makeText(context, "Boot Completed.", Toast.LENGTH_SHORT).show();
-        }*/
-        
-        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())){
+        }
+
+        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
             boolean noConnectivity = intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
             if (noConnectivity) {
                 Toast.makeText(context, "Disconnected.", Toast.LENGTH_SHORT).show();
@@ -21,5 +28,5 @@ public class ExampleBroadcastReceiver extends BroadcastReceiver {
                 Toast.makeText(context, "Connected.", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 }
