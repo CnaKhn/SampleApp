@@ -3,7 +3,6 @@
     package="com.example.sample_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /-->
 
     <application
         android:allowBackup="true"
@@ -24,28 +23,6 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".BroadcastReceiver.OrderedReceiver2">
-            <intent-filter
-                android:priority="2">
-                <action android:name="com.example.sample_app.EXAMPLE_ACTION" />
-            </intent-filter>
-        </receiver>
-
-        <receiver
-            android:name=".BroadcastReceiver.OrderedReceiver3">
-            <intent-filter
-                android:priority="3">
-                <action android:name="com.example.sample_app.EXAMPLE_ACTION" />
-            </intent-filter>
-        </receiver>
-
-        <!--receiver android:name=".BroadcastReceiver.ExampleBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver-->
     </application>
 
 </manifest>
