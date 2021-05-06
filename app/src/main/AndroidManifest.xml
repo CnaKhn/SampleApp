@@ -12,17 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleApp">
-        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity"></activity>
+        <activity android:name=".EventBusExample.ChildActivity"></activity>
+        <activity android:name=".EventBusExample.EventBusActivity" />
+        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity" />
         <activity android:name=".ViewPager2Activity" />
         <activity android:name=".FragmentActivity" />
         <activity android:name=".ContactsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

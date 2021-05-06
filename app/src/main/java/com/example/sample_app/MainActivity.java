@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.sample_app.BroadcastReceiver.BroadcastReceiverActivity;
+import com.example.sample_app.EventBusExample.EventBusActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,26 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add("Contacts").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, ContactsActivity.class));
-                return false;
-            }
+        menu.add("Contacts").setOnMenuItemClickListener(item -> {
+            startActivity(new Intent(MainActivity.this, ContactsActivity.class));
+            return false;
         });
-        menu.add("Fragments").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, FragmentActivity.class));
-                return false;
-            }
+        menu.add("Fragments").setOnMenuItemClickListener(item -> {
+            startActivity(new Intent(MainActivity.this, FragmentActivity.class));
+            return false;
         });
-        menu.add("BroadcastReceiver").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, BroadcastReceiverActivity.class));
-                return false;
-            }
+        menu.add("BroadcastReceiver").setOnMenuItemClickListener(item -> {
+            startActivity(new Intent(MainActivity.this, BroadcastReceiverActivity.class));
+            return false;
+        });
+        menu.add("EventBus").setOnMenuItemClickListener(item -> {
+            startActivity(new Intent(MainActivity.this, EventBusActivity.class));
+            return false;
         });
         return super.onCreateOptionsMenu(menu);
     }
