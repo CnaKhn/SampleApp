@@ -7,6 +7,8 @@ import android.net.ConnectivityManager;
 import android.widget.Toast;
 
 public class ExampleBroadcastReceiver extends BroadcastReceiver {
+    public static final String MY_CUSTOM_ACTION = "com.example.sample_app.EXAMPLE_ACTION";
+    public static final String MY_CUSTOM_STRING_EXTRA = "com.example.sample_app.EXTRA_TEXT";
     @Override
     public void onReceive(Context context, Intent intent) {
         /*if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
@@ -14,15 +16,9 @@ public class ExampleBroadcastReceiver extends BroadcastReceiver {
             Toast.makeText(context, "BOOT COMPLETED!", Toast.LENGTH_SHORT).show();
 
         }*/
-
-        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
-            boolean noConnectivity = intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
-            if (noConnectivity) {
-                Toast.makeText(context, "No Connection.", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(context, "INTERNET CONNECTION FOUND!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (MY_CUSTOM_ACTION.equals(intent.getAction())) {
+            String receivedText = intent.getStringExtra(MY_CUSTOM_STRING_EXTRA);
+            Toast.makeText(context, receivedText, Toast.LENGTH_SHORT).show();
         }
     }
 }
