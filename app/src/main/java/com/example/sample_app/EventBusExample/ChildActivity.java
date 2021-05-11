@@ -26,7 +26,13 @@ public class ChildActivity extends AppCompatActivity {
         btnChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String userText = inputChild.getText().toString();
 
+                CustomMessageEvent event = new CustomMessageEvent();
+                event.setMessage(userText);
+                EventBus.getDefault().post(event);
+
+                finish();
             }
         });
 

@@ -24,6 +24,8 @@ public class EventBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_bus);
 
+        EventBus.getDefault().register(this);
+
         inputChild = findViewById(R.id.input_event_bus);
         btnChild = findViewById(R.id.btn_event_bus);
         btnChild.setOnClickListener(new View.OnClickListener() {
@@ -33,5 +35,12 @@ public class EventBusActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Subscribe
+    public void onEvent(CustomMessageEvent messageEvent) {
+        Log.d(TAG, "onEvent: Event Fired : " + messageEvent.getMessage());
+        inputChild.setText(messageEvent.getMessage());
+    }
+
 
 }
