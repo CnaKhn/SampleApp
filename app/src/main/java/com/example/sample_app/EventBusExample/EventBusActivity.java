@@ -18,11 +18,11 @@ public class EventBusActivity extends AppCompatActivity {
     private static final String TAG = "EventBusActivity";
     EditText inputChild;
     Button btnChild;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_bus);
-        EventBus.getDefault().register(this);
 
         inputChild = findViewById(R.id.input_event_bus);
         btnChild = findViewById(R.id.btn_event_bus);
@@ -32,12 +32,6 @@ public class EventBusActivity extends AppCompatActivity {
                 startActivity(new Intent(EventBusActivity.this, ChildActivity.class));
             }
         });
-    }
-
-    @Subscribe
-    public void onEvent(CustomMessageEvent messageEvent) {
-        Log.i(TAG, "onEvent: A Message From CustomMessageEvent: " + messageEvent.getMessage());
-        inputChild.setText(messageEvent.getMessage());
     }
 
 }
