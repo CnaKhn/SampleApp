@@ -14,7 +14,7 @@ public class ContactsActivity extends AppCompatActivity implements View.OnClickL
     private EditText inputContact;
     private Button btnSaveContact;
     private ContactsAdapter contactsAdapter;
-    private int itemEditPosition = -1; //-1=not editing
+    private int itemEditPosition = -1; //-1 = not editing
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
